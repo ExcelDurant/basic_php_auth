@@ -21,7 +21,7 @@ session_start();
             <form method="POST" action="LoginController.php" class="login-form">
                 <h2 class="title">Login form</h2>
                 <label for="email">email</label>
-                <input type="email" name="email" id="" class="email-in in" required>
+                <input type="email" name="email" id="" placeholder="example@gmail.com" class="email-in in" required>
                 <p class="error">
                     <?php
                     if (isset($_SESSION['email_err'])) {

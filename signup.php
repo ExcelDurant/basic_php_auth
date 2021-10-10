@@ -20,10 +20,10 @@ session_start();
 
     <main class="main-container">
         <div class="container">
-            <form method="POST" action="signup-controller.php" class="signup-form">
+            <form method="POST" action="SignupController.php" class="signup-form">
                 <h2 class="title">Registration form</h2>
                 <label for="name">username</label>
-                <input type="text" name="username" id="" class="name-in in" required>
+                <input type="text" name="username" id="" placeholder="John Doe" class="name-in in" required>
                 <p class="error">
                     <?php
                     if (isset($_SESSION['name_err'])) {
@@ -33,7 +33,7 @@ session_start();
                     ?>
                 </p>
                 <label for="email">email</label>
-                <input type="email" name="email" id="" class="email-in in" required>
+                <input type="email" name="email" id="" placeholder="example@gmail.com" class="email-in in" required>
                 <p class="error">
                     <?php
                     if (isset($_SESSION['email_err'])) {
