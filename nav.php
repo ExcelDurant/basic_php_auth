@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link <?php echo ($_SESSION['page'] == "home" ? "active" : "")?>" aria-current="page" href="/home.php">Home</a>
+                        <a class="nav-link <?php echo ($_SESSION['page'] == "home" ? "active" : "")?>" aria-current="page" href="/pages/home.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php echo ($_SESSION['page'] == "features" ? "active" : "")?>" href="/pages/features.php">Features</a>
@@ -29,7 +29,7 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <form action="/LogoutController.php" method="POST" class="logout-form">
+                    <form action="/controllers/LogoutController.php" method="POST" class="logout-form">
                         <input type="submit" value="logout" class="logout-btn">
                     </form>
                 </span>

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing</title>
     <style>
-        <?php include '../style.css'; ?>
+        <?php include '../styles/style.css'; ?>
     </style>
 </head>
 

@@ -1,5 +1,5 @@
 <?php
-include_once 'db.php';
+include_once '../db.php';
 session_start();
 // remove all session variables
 session_unset();
@@ -25,15 +25,15 @@ if ($invalid_form == true) {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['password'] = $row['password'];
-                header("Location: http://localhost:8080/home.php");
+                header("Location: http://localhost:8080/pages/home.php");
             } else {
                 $_SESSION['pass_err'] = 'invalid credentials';
-                header("Location: http://localhost:8080/login.php");
+                header("Location: http://localhost:8080/pages/login.php");
             }
         }
     } else {
         $_SESSION['pass_err'] = 'invalid credentials';
-        header("Location: http://localhost:8080/login.php");
+        header("Location: http://localhost:8080/pages/login.php");
     }
 
     mysqli_close($connection);

@@ -11,7 +11,7 @@ session_unset();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <style>
-        <?php include './style.css'; ?>
+        <?php include './styles/style.css'; ?>
     </style>
 </head>
 <body>
@@ -24,8 +24,8 @@ session_unset();
             </h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus, mollitia nemo? Nostrum eveniet maxime quidem.</p>
             <div class="btn-container">
-                <a href="./login.php" class="login-link">login</a>
-                <a href="./signup.php" class="signup-link">register</a>
+                <a href="./pages/login.php" class="login-link">login</a>
+                <a href="./pages/signup.php" class="signup-link">register</a>
             </div>
         </div>
     </div>

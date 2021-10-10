@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        <?php include './style.css'; ?>
+        <?php include '../styles/style.css'; ?>
     </style>
     <title>Register</title>
 </head>
@@ -20,7 +20,7 @@ session_start();
 
     <main class="main-container">
         <div class="container">
-            <form method="POST" action="SignupController.php" class="signup-form">
+            <form method="POST" action="../controllers/SignupController.php" class="signup-form">
                 <h2 class="title">Registration form</h2>
                 <label for="name">username</label>
                 <input type="text" name="username" id="" placeholder="John Doe" class="name-in in" required>

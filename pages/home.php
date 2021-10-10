@@ -1,5 +1,5 @@
 <!-- check authorisation -->
-<?php include './RouteGuard.php'; ?>
+<?php include '../RouteGuard.php'; ?>
 <?php $_SESSION['page'] = 'home'; ?>
 
 <!DOCTYPE html>
@@ -11,12 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
-        <?php include './style.css'; ?>
+        <?php include '../styles/style.css'; ?>
     </style>
 </head>
 
 <body>
-    <?php include './nav.php'; ?>
+    <?php include '../nav.php'; ?>
     <h1>
         Hello <?php echo $_SESSION['username']; ?> Welcome Home
     </h1>

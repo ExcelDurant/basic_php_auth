@@ -11,14 +11,14 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-        <?php include './style.css'; ?>
+        <?php include '../styles/style.css'; ?>
     </style>
 </head>
 
 <body>
     <main class="main-container">
         <div class="container">
-            <form method="POST" action="LoginController.php" class="login-form">
+            <form method="POST" action="../controllers/LoginController.php" class="login-form">
                 <h2 class="title">Login form</h2>
                 <label for="email">email</label>
                 <input type="email" name="email" id="" placeholder="example@gmail.com" class="email-in in" required>

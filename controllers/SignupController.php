@@ -1,5 +1,5 @@
 <?php
-include_once 'db.php';
+include_once '../db.php';
 session_start();
 // remove all session variables
 session_unset();
@@ -23,7 +23,7 @@ if ($confirm_password !== $password) {
 }
 
 if ($invalid_form == true) {
-    header("Location: http://localhost:8080/signup.php");
+    header("Location: http://localhost:8080/pages/signup.php");
 } else {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users (username,email,password) VALUES ('$username','$email','$hashed_password')";
@@ -31,12 +31,12 @@ if ($invalid_form == true) {
         $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
         $_SESSION['password'] = $password;
-        header("Location: http://localhost:8080/home.php");
+        header("Location: http://localhost:8080/pages/home.php");
     } else {
         echo "Error: " . $sql . "
 " . mysqli_error($connection);
         $_SESSION['pass_err'] = mysqli_error($connection);
-        header("Location: http://localhost:8080/signup.php");
+        header("Location: http://localhost:8080/pages/signup.php");
     }
     mysqli_close($connection);
 }
