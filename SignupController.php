@@ -21,24 +21,26 @@ if ($confirm_password !== $password) {
     $_SESSION['pass_err'] = 'passwords do not match';
     $invalid_form = true;
 }
+
 if ($invalid_form == true) {
     header("Location: http://localhost:8080/signup.php");
+} else {
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (username,email,password) VALUES ('$username','$email','$hashed_password')";
+    if (mysqli_query($connection, $sql)) {
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        header("Location: http://localhost:8080/home.php");
+    } else {
+        echo "Error: " . $sql . "
+" . mysqli_error($connection);
+        $_SESSION['pass_err'] = mysqli_error($connection);
+        header("Location: http://localhost:8080/signup.php");
+    }
+    mysqli_close($connection);
 }
 
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-$sql = "INSERT INTO users (username,email,password) VALUES ('$username','$email','$hashed_password')";
-if (mysqli_query($connection, $sql)) {
-    $_SESSION['username'] = $username;
-    $_SESSION['email'] = $email;
-    $_SESSION['password'] = $password;
-    header("Location: http://localhost:8080/home.php");
-} else {
-    echo "Error: " . $sql . "
-" . mysqli_error($connection);
-    $_SESSION['pass_err'] = mysqli_error($connection);
-    header("Location: http://localhost:8080/signup.php");
-}
-mysqli_close($connection);
 
 
 function format_input($input)

@@ -14,30 +14,31 @@ $password = format_input($_POST['password']);
 
 if ($invalid_form == true) {
     header("Location: http://localhost:8080/login.php");
-}
-
-$sql = "SELECT id, username, email, password FROM users WHERE email='$email'";
-$result = mysqli_query($connection, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while ($row = mysqli_fetch_assoc($result)) {
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['email'] = $row['email'];
-            $_SESSION['password'] = $row['password'];
-            header("Location: http://localhost:8080/home.php");
-        } else {
-            $_SESSION['pass_err'] = 'invalid credentials';
-            header("Location: http://localhost:8080/login.php");
-        }
-    }
 } else {
-    $_SESSION['pass_err'] = 'invalid credentials';
-    header("Location: http://localhost:8080/login.php");
+    $sql = "SELECT id, username, email, password FROM users WHERE email='$email'";
+    $result = mysqli_query($connection, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            if (password_verify($password, $row['password'])) {
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['password'] = $row['password'];
+                header("Location: http://localhost:8080/home.php");
+            } else {
+                $_SESSION['pass_err'] = 'invalid credentials';
+                header("Location: http://localhost:8080/login.php");
+            }
+        }
+    } else {
+        $_SESSION['pass_err'] = 'invalid credentials';
+        header("Location: http://localhost:8080/login.php");
+    }
+
+    mysqli_close($connection);
 }
 
-mysqli_close($connection);
 
 function format_input($input)
 {

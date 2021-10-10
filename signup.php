@@ -13,7 +13,7 @@ session_start();
     <style>
         <?php include './style.css'; ?>
     </style>
-    <title>Document</title>
+    <title>Register</title>
 </head>
 
 <body>
