@@ -1,8 +1,11 @@
 <?php
-include_once '../db.php';
-session_start();
-// remove all session variables
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 session_unset();
+
+include_once '../db.php';
 
 $invalid_form = false;
 $username = format_input($_POST['username']);

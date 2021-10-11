@@ -1,5 +1,9 @@
 <?php
-session_start();
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    // header('HTTP/1.1 401 Unauthorized');
 ?>
 
 <!DOCTYPE html>

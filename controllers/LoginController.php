@@ -1,8 +1,13 @@
 <?php
-include_once '../db.php';
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 // remove all session variables
 session_unset();
+
+// connection to database
+include_once '../db.php';
 
 $invalid_form = false;
 $email = format_input($_POST['email']);
@@ -13,7 +18,14 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $password = format_input($_POST['password']);
 
 if ($invalid_form == true) {
-    header("Location: http://localhost:8080/login.php");
+    // header('WWW-Authenticate: Basic realm="Top Secret Files"');
+    header("HTTP/1.1 401 Unauthorized");
+    // http_response_code(401);
+    header("Location: http://localhost:8080/pages/login.php");
+    
+    // header("HTTP/1.0 401 Unauthorized");
+    exit;
+    // header("HTTP/1.0 401 Unauthorized");
 } else {
     $sql = "SELECT id, username, email, password FROM users WHERE email='$email'";
     $result = mysqli_query($connection, $sql);
@@ -28,12 +40,22 @@ if ($invalid_form == true) {
                 header("Location: http://localhost:8080/pages/home.php");
             } else {
                 $_SESSION['pass_err'] = 'invalid credentials';
+                // header('WWW-Authenticate: Basic realm="Top Secret Files"');
+                header("HTTP/1.1 401 Unauthorized");
+                // http_response_code(401);
                 header("Location: http://localhost:8080/pages/login.php");
+                // header("HTTP/1.0 401 Unauthorized");
+                exit;
             }
         }
     } else {
         $_SESSION['pass_err'] = 'invalid credentials';
+        // header('WWW-Authenticate: Basic realm="Top Secret Files"');
+        header("HTTP/1.1 401 Unauthorized");
+        // http_response_code(401);
         header("Location: http://localhost:8080/pages/login.php");
+        // header("HTTP/1.0 401 Unauthorized");
+        exit;
     }
 
     mysqli_close($connection);
