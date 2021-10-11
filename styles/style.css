@@ -70,7 +70,7 @@ input[type=submit] {
 .signup-form .signup-btn, .login-form .signup-btn {
   padding: 5px 25px;
   color: white;
-  background-color: #a3d45a;
+  background-color: #9bd348;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -83,14 +83,17 @@ welcome page
 */
 .welcome-container {
   width: 100%;
+  height: 500px;
   padding: 30px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .welcome-container .title {
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 30px;
+  color: #313131;
 }
 .welcome-container p {
   color: #464646;
@@ -101,14 +104,14 @@ welcome page
 .welcome-container .btn-container {
   display: flex;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 20px;
   justify-content: space-between;
   justify-self: center;
 }
 .welcome-container .btn-container a {
   padding: 5px 25px;
   color: white;
-  background-color: #a3d45a;
+  background-color: #94e21e;
   border: none;
   border-radius: 8px;
   cursor: pointer;
